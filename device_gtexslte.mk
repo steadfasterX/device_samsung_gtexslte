@@ -265,4 +265,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
 PRODUCT_NAME := full_gtexslte
-PRODUCT_DEVICE := gtexslte
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="gtexsltexx-user 5.1.1 LMY47V T285XXS0ARJ3 release-keys"
+
+BUILD_FINGERPRINT := "samsung/gtexsltexx/gtexslte:5.1.1/LMY47V/T285XXS0ARJ3:user/release-keys"
