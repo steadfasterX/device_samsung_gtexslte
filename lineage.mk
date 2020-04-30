@@ -11,8 +11,8 @@ $(call inherit-product, device/samsung/gtexslte/device_gtexslte.mk)
 TARGET_BOOTANIMATION_SIZE := 720x480
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := gtexslte
 PRODUCT_NAME := lineage_gtexslte
+PRODUCT_DEVICE := gtexslte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-T285
 PRODUCT_MANUFACTURER := samsung
