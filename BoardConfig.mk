@@ -106,6 +106,7 @@ WIFI_DRIVER_MODULE_NAME     := "sprdwl"
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+#BOARD_CHARGING_MODE_BOOTING_LPM := /sys/devices/sec-battery.4/power_supply/battery/batt_lp_charging
 
 # Integrated kernel building configs
 # BOARD_KERNEL_CMDLINE will be ignored when CONFIG_CMDLINE_FROM_BOOTLOADER=y in defconfig
@@ -248,32 +249,8 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 SERVICES_WITHOUT_SELINUX_DOMAIN := true
 
 ################################################
-# TWRP specific build flags
+# THE COMPLETE RECOVERY HANDLING HAS BEEN MOVED
+# TO THE BRANCH cm-14.1_recovery !
 
-#RECOVERY_VARIANT := twrp
-
-TW_THEME := portrait_hdpi
-TW_HAS_DOWNLOAD_MODE := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_EXCLUDE_SUPERSU := true
-TW_BRIGHTNESS_PATH := "/sys/devices/gen-panel-backlight.29/backlight/panel/brightness"
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 162
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/20200000.usb/gadget/lun0/file"
-TARGET_RECOVERY_FSTAB = device/samsung/gtexslte/twrp.fstab
-TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
-RECOVERY_GRAPHICS_FORCE_SINGLE_BUFFER := true
-RECOVERY_SDCARD_ON_DATA := true
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_HAS_FLIPPED_SCREEN := true
-BOARD_HAS_NO_SELECT_BUTTON := true
-
-# Encryption support
-TW_INCLUDE_CRYPTO := true
-# TW_INCLUDE_CRYPTO_SAMSUNG := true
-# TARGET_HW_DISK_ENCRYPTION := true
-
-# Debug flags
-# TWRP_INCLUDE_LOGCAT := true
-# TARGET_USES_LOGD := true
+PRODUCT_IDENT := $(TARGET_PRODUCT:_gtexslte=)
+TARGET_RECOVERY_FSTAB := device/samsung/gtexslte/recovery.fstab
