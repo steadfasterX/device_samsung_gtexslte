@@ -5,6 +5,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/gtexslte/gtexslte-vendor.mk)
 
+# discoveryOS config will be included when build has been started with DIOS=true
+BUILD_DIOS := $(shell echo ${DIOS})
+
 DEVICE_PACKAGE_OVERLAYS += device/samsung/gtexslte/overlay
 
 # This device is hdpi
@@ -76,8 +79,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/gtexslte/audio/audio_hw.xml:system/etc/audio_hw.xml \
 	device/samsung/gtexslte/audio/audio_para:system/etc/audio_para \
-	device/samsung/gtexslte/audio/codec_pga.xml:system/etc/codec_pga.xml \
-	device/samsung/gtexslte/audio/tiny_hw.xml:system/etc/tiny_hw.xml \
+	device/samsung/gtexslte/audio/tiny_hw.xml:system/etc/tiny_hw.xml
+
+# audio must be handled different between LOS and diOS
+ifneq ($(BUILD_DIOS),true)
+PRODUCT_COPY_FILES += \
+	device/samsung/gtexslte/audio/codec_pga.xml:system/etc/codec_pga.xml
+endif
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -277,3 +285,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="gtexsltexx-user 5.1.1 LMY47V T285XXS0ARJ3 release-keys"
 
 BUILD_FINGERPRINT := "samsung/gtexsltexx/gtexslte:5.1.1/LMY47V/T285XXS0ARJ3:user/release-keys"
+
+# discoveryOS handling
+ifeq ($(BUILD_DIOS),true)
+include vendor/dios/discoveryos.mk
+endif
