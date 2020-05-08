@@ -261,6 +261,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.networklocation=1 \
 	ro.sys.sdcardfs=true \
 
+# F-droid / fdroid
+WITH_FDROID := true
+PRODUCT_PACKAGES += \
+    F-Droid \
+    FDroidPrivilegedExtension
+UPDATE_FDROID := $(shell cd vendor/fdroid && ./get_packages.sh)
+
 # Dalvik Heap config
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
