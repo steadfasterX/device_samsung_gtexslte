@@ -32,3 +32,5 @@ allow wcnd sysfs:dir { open read };
 allow wcnd system_prop:property_service set;
 
 type_transition wcnd system_data_file:file radio_data_file;
+
+allow wcnd system_data_file:file write;

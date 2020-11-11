@@ -29,3 +29,9 @@ allow rild system_server:file { read getattr open };
 
 type_transition rild system_data_file:file radio_data_file;
 allow rild radio_data_file:file create_file_perms;
+
+allow rild logd:unix_stream_socket connectto;
+allow rild logdr_socket:sock_file write;
+
+allow rild dumplog_data_file:dir { open read };
+allow rild dumplog_data_file:file { append getattr open read setattr };

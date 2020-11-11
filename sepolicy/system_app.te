@@ -1,1 +1,2 @@
 allow system_app kernel:system module_request;
+allow system_app zygote:binder call;

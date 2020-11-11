@@ -3,6 +3,12 @@ type sswap_exec, exec_type, file_type;
 
 init_daemon_domain(sswap)
 
+
+allow sswap proc:file { getattr open read };
+allow sswap proc_meminfo:file { getattr open read };
+allow sswap rootfs:file read;
+allow sswap sysfs:file { getattr open read };
+
 allow sswap init:unix_stream_socket connectto;
 allow sswap property_socket:sock_file write;
 allow sswap self:capability sys_admin;
