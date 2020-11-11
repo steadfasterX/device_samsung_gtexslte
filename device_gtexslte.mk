@@ -291,5 +291,8 @@ ifeq ($(BUILD_DIOS),true)
 include vendor/dios/discoveryos.mk
 endif
 
+# inherit vendor e
+$(call inherit-product, vendor/e/config/common.mk)
+
 # inherit vendor e mod
 $(call inherit-product, vendor/e-mod/config/common.mk)
