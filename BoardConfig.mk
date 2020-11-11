@@ -123,6 +123,8 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --base 0 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # /lib/modules: must run before INSTALLED_RAMDISK_TARGET and after TARGET_KERNEL_BINARIES
 # /system/lib/modules: after TARGET_KERNEL_BINARIES
 # so I switched to that latter as it is not needed to have these in the RAMDISK at all
