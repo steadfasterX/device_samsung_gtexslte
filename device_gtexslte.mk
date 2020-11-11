@@ -286,6 +286,15 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := "samsung/gtexsltexx/gtexslte:5.1.1/LMY47V/T285XXS0ARJ3:user/release-keys"
 
+# F-droid & Aurora
+WITH_FDROID := true
+FDROID_EXTRA_REPOS := true
+PRODUCT_PACKAGES += \
+    F-Droid \
+    FDroidPrivilegedExtension \
+    additional_repos.xml \
+    AuroraStore
+
 # discoveryOS handling
 ifeq ($(BUILD_DIOS),true)
 include vendor/dios/discoveryos.mk
