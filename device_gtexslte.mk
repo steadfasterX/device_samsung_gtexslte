@@ -183,13 +183,14 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-	bluetooth.default \
 	audio.a2dp.default \
 	libbt-vendor
 
+#	bluetooth.default \
+
 # Bluetooth
-PRODUCT_PACKAGES += \
-	libbluetooth_jni \
+#PRODUCT_PACKAGES += \
+#	libbluetooth_jni \
 
 
 # Lights
@@ -257,7 +258,9 @@ PERMISSION_XML_FILES := \
 	frameworks/native/data/etc/android.software.sip.xml \
 	frameworks/native/data/etc/android.hardware.wifi.xml \
 	frameworks/native/data/etc/android.hardware.wifi.direct.xml \
-	frameworks/native/data/etc/android.software.midi.xml
+	frameworks/native/data/etc/android.software.midi.xml \
+	$(LOCAL_PATH)/permissions/com.broadcom.bt.xml \
+	$(LOCAL_PATH)/permissions/tablet_core_hardware.xml
 
 PRODUCT_COPY_FILES += \
 	$(foreach f,$(PERMISSION_XML_FILES),$(f):system/etc/permissions/$(notdir $(f)))
