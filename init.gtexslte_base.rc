@@ -153,6 +153,11 @@ on post-fs
     start boot_lc_kernel
     start boot_lc_crash
 
+on post-fs-data
+    # needed for /data/misc/media/sensor.file and should change
+    # the wrong perm from init.rc
+    mkdir /data/misc/media 0770 cameraserver media
+
 # Indicate boot complete to PM to complete PM initialization
 on property:dev.bootcomplete=1
     write /dev/console [AUTOTEST]BOOT_COMPLETE
