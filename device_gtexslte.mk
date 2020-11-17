@@ -295,4 +295,4 @@ include vendor/dios/discoveryos.mk
 endif
 
 # inherit vendor e mod
-$(call inherit-product, vendor/e-mod/config/common.mk)
+#$(call inherit-product, vendor/e-mod/config/common.mk)
