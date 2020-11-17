@@ -49,11 +49,11 @@ PRODUCT_COPY_FILES += \
 		device/samsung/gtexslte/init.sc8830.usb.rc:root/init.sc8830.usb.rc \
 		device/samsung/gtexslte/init.gtexslte.rc:root/init.gtexslte.rc \
 		device/samsung/gtexslte/init.gtexslte_base.rc:root/init.gtexslte_base.rc \
-    device/samsung/gtexslte/init.sc8830_ss.rc:root/init.sc8830_ss.rc \
-    device/samsung/gtexslte/init.gtexslte.usb.rc:root/init.gtexslte.usb.rc \
-    device/samsung/gtexslte/fstab.sc8830:root/fstab.sc8830 \
+		device/samsung/gtexslte/init.sc8830_ss.rc:root/init.sc8830_ss.rc \
+		device/samsung/gtexslte/init.gtexslte.usb.rc:root/init.gtexslte.usb.rc \
+		device/samsung/gtexslte/fstab.sc8830:root/fstab.sc8830 \
 		device/samsung/gtexslte/fstab.sc8830:root/fstab.unknown \
-    device/samsung/gtexslte/ueventd.sc8830.rc:root/ueventd.sc8830.rc \
+		device/samsung/gtexslte/ueventd.sc8830.rc:root/ueventd.sc8830.rc \
 		device/samsung/gtexslte/ueventd.sc8830.rc:root/ueventd.unknown.rc \
 		device/samsung/gtexslte/init.rilcommon.rc:root/init.rilcommon.rc \
 		device/samsung/gtexslte/init.wifi.rc:root/init.wifi.rc \
@@ -274,7 +274,7 @@ WITH_FDROID := true
 PRODUCT_PACKAGES += \
     F-Droid \
     FDroidPrivilegedExtension
-UPDATE_FDROID := $(shell cd vendor/fdroid && ./get_packages.sh)
+#UPDATE_FDROID := $(shell cd vendor/fdroid && ./get_packages.sh)
 
 # Dalvik Heap config
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
