@@ -4,9 +4,10 @@ add_lunch_combo lineage_gtexslte-eng
 ############# /e/ section ###############
 
 export EOS_DEVICE=gtexslte
+export DIOS=true
 export EOS_BRANCH_NAME="v1-nougat"
 export EOS_RELEASE_TYPE="UNOFFICIAL"
-#export EOS_CUSTOM_PACKAGES="MuPDF GmsCore GsfProxy FakeStore com.google.android.maps.jar Mail BlissLauncher BlissIconPack MozillaNlpBackend OpenWeatherMapWeatherProvider AccountManager MagicEarth OpenCamera eDrive Weather Notes Tasks NominatimNlpBackend DroidGuard OpenKeychain Message Browser BrowserWebView LibreOfficeViewer noEOSappstore"
+export EOS_CUSTOM_PACKAGES="GmsCore GsfProxy FakeStore com.google.android.maps.jar BlissLauncher BlissIconPack MozillaNlpBackend OpenWeatherMapWeatherProvider AccountManager MagicEarth Weather NominatimNlpBackend OpenKeychain Message Browser BrowserWebView noEOSappstore"
 export EOS_OTA_CLEARTEXT=true
 export EOS_USE_CCACHE=true
 export EOS_CCACHE_COMPRESS=true

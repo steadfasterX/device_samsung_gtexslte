@@ -272,13 +272,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.networklocation=1 \
 	ro.sys.sdcardfs=true \
 
-# F-droid / fdroid
-WITH_FDROID := true
-PRODUCT_PACKAGES += \
-    F-Droid \
-    FDroidPrivilegedExtension
-#UPDATE_FDROID := $(shell cd vendor/fdroid && ./get_packages.sh)
-
 # Dalvik Heap config
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
 
@@ -295,4 +288,4 @@ include vendor/dios/discoveryos.mk
 endif
 
 # inherit vendor e mod
-#$(call inherit-product, vendor/e-mod/config/common.mk)
+$(call inherit-product, vendor/e-mod/config/common.mk)
