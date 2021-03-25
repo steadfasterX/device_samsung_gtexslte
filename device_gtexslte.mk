@@ -289,3 +289,6 @@ endif
 
 # inherit vendor e mod
 $(call inherit-product, vendor/e-mod/config/common.mk)
+
+# Enable extendrom
+$(call inherit-product-if-exists, vendor/extendrom/config/common.mk)
