@@ -195,6 +195,3 @@ net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
 ro.build.aapt.config.prefer=tvdpi
 ro.build.version.sdl=2203
-
-# OTA
-cm.updater.uri=http://sfxota.binbash.rocks:8009/e-os/nougat/api/v1/{device}/{type}/{incr}

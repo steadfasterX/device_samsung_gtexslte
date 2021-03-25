@@ -285,6 +285,11 @@ BUILD_FINGERPRINT := "samsung/gtexsltexx/gtexslte:5.1.1/LMY47V/T285XXS0ARJ3:user
 # discoveryOS handling
 ifeq ($(BUILD_DIOS),true)
 include vendor/dios/discoveryos.mk
+PRODUCT_PROPERTY_OVERRIDES += \
+    cm.updater.uri=http://sfxota.binbash.rocks:8009/dios/nougat/api/v1/{device}/{type}/{incr}
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    cm.updater.uri=http://sfxota.binbash.rocks:8009/e-os/nougat/api/v1/{device}/{type}/{incr}
 endif
 
 # Enable extendrom
