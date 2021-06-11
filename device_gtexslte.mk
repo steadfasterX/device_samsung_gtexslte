@@ -7,6 +7,8 @@ $(call inherit-product-if-exists, vendor/samsung/gtexslte/gtexslte-vendor.mk)
 
 # discoveryOS config will be included when build has been started with DIOS=true
 BUILD_DIOS := $(shell echo ${DIOS})
+# for OTA decicision we need to to specify LOS=true when starting a los build
+BUILD_LOS := $(shell echo ${LOS})
 
 DEVICE_PACKAGE_OVERLAYS += device/samsung/gtexslte/overlay
 
@@ -282,15 +284,24 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := "samsung/gtexsltexx/gtexslte:5.1.1/LMY47V/T285XXS0ARJ3:user/release-keys"
 
-# discoveryOS handling
+# OTA handling based on what we build
 ifeq ($(BUILD_DIOS),true)
+# we buid DIOS
 include vendor/dios/discoveryos.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     cm.updater.uri=http://sfxota.binbash.rocks:8009/dios/nougat/api/v1/{device}/{type}/{incr}
 else
+    ifeq ($(BUILD_LOS),true)
+    # we build LOS
+PRODUCT_PROPERTY_OVERRIDES += \
+    cm.updater.uri=http://sfxota.binbash.rocks:8009/lineage/14.1/api/v1/{device}/{type}/{incr}
+    else
+    # we build EOS
 PRODUCT_PROPERTY_OVERRIDES += \
     cm.updater.uri=http://sfxota.binbash.rocks:8009/e-os/nougat/api/v1/{device}/{type}/{incr}
+    endif
 endif
+
 
 # Enable extendrom
 $(call inherit-product-if-exists, vendor/extendrom/config/common.mk)
